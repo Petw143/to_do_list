@@ -81,6 +81,12 @@ flutter:
     - family: AtheneVoyage
       fonts:
         - asset: lib/assets/fonts/AtheneVoyage.ttf 
+    - family: Karst
+      fonts:
+        - asset: lib/assets/fonts/Karst-Light.ttf
+          weight: 400
+        - asset: lib/assets/fonts/Karst-ExtraBold.ttf
+          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

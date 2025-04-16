@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _RegisterPageState extends State<RegisterPage> {
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
   bool _obscureText = true;
 
   @override
@@ -20,22 +22,23 @@ class _HomePageState extends State<HomePage> {
         child: Padding(
           padding: const EdgeInsets.all(32.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 10),
               Text(
-                'To Do List',
-                style: TextStyle(fontFamily: 'AtheneVoyage', fontSize: 60),
+                'Crie a sua conta',
+                style: TextStyle(
+                    fontFamily: 'Karst',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 40),
               ),
+              SizedBox(height: 45),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TextField(
-                    controller: emailController,
+                    controller: nameController,
                     decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      hintText: 'Email',
+                      hintText: 'Nome',
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(
@@ -47,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(
                           color: Colors.grey,
-                          width: 2.0
+                          width: 1.5
                         )
                       ),
                     ),
@@ -55,11 +58,52 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: 12),
                   TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      hintText: 'Email',
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade400, width: 0.5)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide:
+                              BorderSide(color: Colors.grey, width: 1.5)),
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
                     controller: passwordController,
                     decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
                       hintText: 'Senha ',
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade400, width: 0.5)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide:
+                              BorderSide(color: Colors.grey, width: 1.5)),
+                      suffixIcon: IconButton(
+                        icon: Icon(_obscureText
+                            ? Icons.visibility_off
+                            : Icons.visibility),
+                        onPressed: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                      ),
+                    ),
+                    keyboardType: TextInputType.visiblePassword,
+                    obscureText: _obscureText,
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: confirmPasswordController,
+                    decoration: InputDecoration(
+                      hintText: 'Confirme a Senha',
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(
@@ -71,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(
                           color: Colors.grey,
-                          width: 2.0
+                          width: 1.5
                         )
                       ),
                       suffixIcon: IconButton(
@@ -88,18 +132,7 @@ class _HomePageState extends State<HomePage> {
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: _obscureText,
                   ),
-                  const SizedBox(height: 12),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: GestureDetector(
-                      onTap: () => {},
-                      child: Text(
-                        'Esqueceu sua senha?',
-                        style: TextStyle(color: Theme.of(context).primaryColor),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 35),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -112,33 +145,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       onPressed: () => {},
                       child: Text(
-                        'Entrar',
+                        'Cadastrar',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 30),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Divider(),
-                  SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Você ainda não tem uma conta?'),
-                      GestureDetector(
-                        onTap: () => {},
-                        child: Text(
-                          ' Cadastre-se',
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                        ),
-                      )
-                    ],
                   ),
                 ],
               ),
