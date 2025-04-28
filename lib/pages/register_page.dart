@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list/components/user_image_picker.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -13,6 +14,11 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   bool _obscureText = true;
+
+  /*void _handleImage(File image) {
+    // A ideia era coloca ruma imagem no perfil do usuário,
+  }*/
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +41,19 @@ class _RegisterPageState extends State<RegisterPage> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  //UserImagePicker(),
                   TextField(
                     controller: nameController,
                     decoration: InputDecoration(
                       hintText: 'Nome',
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(
-                          color: Colors.grey.shade400,
-                          width: 0.5
-                        )
-                      ),
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade400, width: 0.5)),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(
-                          color: Colors.grey,
-                          width: 1.5
-                        )
-                      ),
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide:
+                              BorderSide(color: Colors.grey, width: 1.5)),
                     ),
                     keyboardType: TextInputType.emailAddress,
                   ),
@@ -78,9 +79,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     decoration: InputDecoration(
                       hintText: 'Senha ',
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
-                              color: Colors.grey.shade400, width: 0.5)),
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                            BorderSide(color: Colors.grey.shade400, width: 0.5),
+                      ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide:
@@ -106,17 +108,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       hintText: 'Confirme a Senha',
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(
-                          color: Colors.grey.shade400,
-                          width: 0.5
-                        )
+                        borderSide:
+                            BorderSide(color: Colors.grey.shade400, width: 0.5),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(
-                          color: Colors.grey,
-                          width: 1.5
-                        )
+                        borderSide: BorderSide(color: Colors.grey, width: 1.5),
                       ),
                       suffixIcon: IconButton(
                         icon: Icon(_obscureText
