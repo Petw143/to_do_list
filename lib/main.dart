@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:to_do_list/pages/cards_page.dart';
 import 'package:to_do_list/pages/home_page.dart';
 import 'package:to_do_list/pages/register_page.dart';
-import 'package:to_do_list/pages/to_do_list_page.dart';
 import 'firebase_options.dart';
 
 void main() async {
