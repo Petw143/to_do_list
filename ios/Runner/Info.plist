@@ -28,6 +28,17 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	
+	
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need acess to let you pick a image</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need acess to let you pick a image</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need acess to let you pick a imageMai</string>
+
+
+
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

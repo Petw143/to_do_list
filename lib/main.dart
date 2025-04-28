@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:to_do_list/pages/cards_page.dart';
 import 'package:to_do_list/pages/home_page.dart';
+import 'package:to_do_list/pages/register_page.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: CardsPage(),
       debugShowCheckedModeBanner: false,
     );
   }
